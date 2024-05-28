@@ -1,0 +1,30 @@
+#include <stdio.h>
+// Nếu không chạy được đổ lỗi do máy nhé bạn
+int main()
+{
+int N,p,s,k,i,t;
+s=k=0;
+printf("Nhap so N duong "); scanf("%d",&N);
+int a[N];
+for(i=2;i<=N;i++)
+	{
+	a[i]=1;
+	}
+for (p=2;p<N;p++)
+	{
+	t= N/p;
+		for (i=2;i<=t;i++)
+		a[p*i]=0;
+		}
+for(i=2;i<=N;i++)
+	{
+	if ((a[i]==1) && (N%i==0))	k++;
+	}
+
+	p=0;
+for(i=1;i<=N;i++)
+	{
+	if (N%i==0)	s++;
+	}
+printf("Vay so uoc la %d \nSo uoc nguyen to la %d",s,k);
+}

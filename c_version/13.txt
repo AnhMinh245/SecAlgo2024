@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+int kiemtraSNT(int n){
+for(int i=2; i<n ; i++){
+if(n%i==0) return 0;
+}
+return 1;
+}
+int main(){
+int n;
+printf("Nhap n: "); scanf("%d",&n);
+if(n<2){
+printf("\nNhap n>=2. Moi nhap lai.");
+printf("Nhap n: "); scanf("%d",&n);
+}
+int i,j;
+for(i =2; i<=n ; i++){if(kiemtraSNT(i)==1){
+for( j=i; j<=n ; j++){
+if(kiemtraSNT(j)==1){
+int tong = i+j;
+int hieu = abs(i-j);
+if(kiemtraSNT(tong)==1 && kiemtraSNT(hieu)==1){
+printf("\nHai so nguyen to can tim la: %d va %d", i , j);
+}
+}
+}
+}
+}
+return 0;
+}

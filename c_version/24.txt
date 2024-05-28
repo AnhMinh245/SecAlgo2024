@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int a,b,sb,i,j,k,Tong,check;
+	printf("Nhap a: "); scanf("%d",&a);
+	printf("Nhap b: "); scanf("%d",&b);
+	sb=sqrt(b);
+	int S1[b],S2[b];
+	
+	for(i=1;i<=sb;i++)
+	{
+		S1[i]=i*i;
+		S2[i]=i*i;	
+	printf("%d ",S1[i]);
+	}
+	
+	for(i=1;i<=sb;i++)
+	{
+		for(j=1;j<=sb;j++)
+			{
+			Tong = S1[i] + S2[j];
+			if ((Tong>=a) && (Tong<=b))
+				{
+					check=1;
+				for(k=2;k<sqrt(Tong);k++)
+					{
+						if (Tong%k==0) check=0;
+					}
+					if (check==1) printf ("\nCap so S1, S2: %d %d",S1[i],S2[j]);
+				}
+			}
+	}
+}

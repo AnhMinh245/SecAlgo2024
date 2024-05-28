@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<math.h>
+#include<windows.h>
+//TT fermat
+int main()
+{
+    int n,t,a,ran=0,i,m;
+    label:
+    printf("\nNhap n :"); scanf("%d",&n);
+    m=n;
+    if((n<3)|(n%2==0))
+    {
+        printf("\nSo n le va lon hon hoac bang 3, xin moi nhap lai!\n");
+        goto label;
+    }
+    printf("\nSo lan lap:"); scanf("%d",&t);
+    for(i=1;i<=t;i++)
+    {
+        printf("\n----------------\nLan lap %d",i);
+        while(ran>=0)
+        {
+            ran=rand();
+            if((ran>=2)&&(ran<=n-2))    break;
+        }
+        a=ran;
+        printf("\n ran = %d",a);
+        //da co n, so random a, tinh r = a^(n-1) mod n
+        //tinh r bang pp nhan bp co lap
+        int r,x,A;
+        x=n-1; //=> tinh r = a^x (mod n)
+        int b;
+        b=1; A=a;
+        if(x==0) //that ra truong hop nay khong the xay ra vi n>=3, x = n-1 >=2
+        {
+            printf("\nr = b = 1");
+        }
+        //doi x thanh so nhi phan
+        int nhiphan,k[20],j=0,d;
+        nhiphan=x;
+        printf("\n");
+        while(nhiphan>0)
+        {
+            k[j]=nhiphan%2;
+            nhiphan=(nhiphan-k[j])/2;
+            printf(" k[%d]=%d",j,k[j]);
+            j++;
+        }
+        if(k[0]==1) b=a; //cai nay la khong the vi n la so le -> x la so chan
+        for(d=0;d<=j;d++)
+        {
+            A=(A*A)%m;
+            if(k[d]==1)
+                b=(A*b)%m;
+            printf("\n %d %d %d",d,A,b);
+        }
+        printf("\nr = b= %d",b); //b la r = a^(n-1) mod n
+        if(b!=1)
+            printf("\nDay la hop so");
+        else printf("\nDay là so nguyen to");
+    }
+}

@@ -1,0 +1,127 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int phantu,e,random=0,n,t;
+    printf("\nNhap N: "); scanf("%d",&phantu);
+    printf("So lan lap: "); scanf("%d",&t);
+    int mang[phantu];
+    for (e=0;e<phantu;e++)
+    {   label:
+        while(random>=0)
+        {
+            random = rand() ;
+            if((random>=2)&&(random<1000))
+                break;
+        }
+        n=random;// printf("n = %d    ",n); //kiem tra n co phai so nguyen to khong
+        int i;
+        //Tim r va s thoa man n-1 = r*2^s
+        int r,s,trunggian;
+        trunggian=n-1; r=trunggian; s=0;
+        while (r>0)
+        {
+            if(r%2==1)
+            {
+            //    printf("\ns = %d; r = %d",s,r);
+                break;
+            }
+            r=trunggian/2;
+            trunggian=r;
+            s++;
+        }
+        for(i=1;i<=t;i++)
+        {
+            //Chon random so ng a, 2=< a <= n-2
+            int a=0,ran;
+        //    printf("\n-------------\nLan lap %d",i);
+            while(a>=0)
+            {
+                ran=rand();
+                if((ran>=2)&&(ran<=(n-2)))
+                break;
+            }
+            a=ran;// printf("\na = %d\n",a);
+            //Dung nhan bp co lap de tinh y = a^r mod n
+            int b, A,y,m;
+            b=1; A=a; m=n;
+            if(r==0) y=b; //khong xay ra vi r tu dau la so le
+            //chuyen nhi phan qua mang R[20]
+            int nhiphan,R[20],j=0,d=0;
+            nhiphan = r;
+            while (nhiphan>0)
+            {
+                R[j]=nhiphan%2;
+                nhiphan= (nhiphan-R[j])/2;
+        //        printf("R[%d]=%d  ",j,R[j]);
+                j++;
+            }
+        //    printf("\nj = %d",j);
+            //ke bang
+            if(r==1) b=a;
+        //    printf("\nd R[i]  A   b");
+            for(d=0;d<j;d++)
+            {
+                A=(A*A)%m;
+                if(R[d]==1)
+                b=(A*b)%m;
+        //        printf("\n%d  %d   %d  %d",d,R[d],A,b);
+            }
+        //    printf("\ny = b = %d",b);
+            y=b;
+            if((y!=1)&&(y!=n-1))
+            {
+                j=1;
+               while((j<=(s-1))&&(y!=n-1))
+                {
+                    y=(y*y)%n;
+                    if(y==1)
+                    {
+                     goto label;
+                    //printf("\nHop so.");
+                    //return 1;
+                    }
+                    j++;
+                }
+                if(y!=n-1)
+                {
+                    goto label;
+                    //printf("\nHop so.");
+                    //return 1;
+                }
+                else mang[e]=n; //printf("\nSo nguyen to.");
+            }
+            else mang[e]=n; //printf("\nSo nguyen to.");
+        }
+    //    printf("A[%d] = %d;     ",e,n);
+    }
+    printf("\nCac phan tu trong mang la:\nA (");
+    for (e=0;e<phantu;e++)
+        printf("%d  ",mang[e]);
+    printf(")");
+    //Sap xep thu tu tu be den lon:
+    int vt,phu;
+    for(e=0;e<phantu;e++)
+    for(vt=0;vt<phantu;vt++)
+    {
+        if(mang[e]<mang[vt])
+        {
+            phu=mang[e];
+            mang[e]=mang[vt];
+            mang[vt]=phu;
+        }
+    }
+    printf("\nMang sau sap xep:\nA (");
+    for (e=0;e<phantu;e++)
+        printf("%d  ",mang[e]);
+    printf(")");
+    int hieu,min=200;
+    for(e=0;e<phantu;e++)
+    {
+        hieu=abs(mang[e]-mang[e+1]);
+        if(hieu<min)
+            min=hieu;
+    }
+    printf("\nKhoang cach nho nhat la: %d",min);
+
+}

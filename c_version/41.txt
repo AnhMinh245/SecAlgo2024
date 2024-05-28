@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<math.h>
+#include<windows.h>
+int main()
+{
+    int a,k,n,b,kq,A,bpA,K[50];
+    printf("\nNhap a: "); scanf("%d",&a);
+    printf("\nNhap so mu k: "); scanf("%d",&k);
+    printf("\nNhap n: "); scanf("%d",&n);
+    if(k==0)
+    {
+        if(n==1) printf("\nKet qua = 0");
+        else printf("\nKet qua = 1");
+    }
+    A=a;b=a;
+    if(k==1)
+    {
+        kq = a%n;
+        printf("\nKet qua = %d",kq);
+    }
+    //Chuyen nhi phan
+    else if (k!=1 && k!=0)
+{
+        int x=k,i=0,d=0;
+    while(x>0)
+    {
+        K[i]=x % 2;
+        x=(x-K[i])/2;
+        printf("K[%d]=%d ;  ",i,K[i]);
+        i++;d++;
+
+    }
+    for(i=1;i<d;i++)
+    {
+        bpA = pow(A,2);
+        A= bpA % n;
+        if (K[i]==1)
+           {
+                b = (A*b) % n;
+           }
+        printf("\n%d  %d  %d",i,A,b);
+    }
+    printf ("\nA = %d; B = %d;",A,b); 
+	int check=1;
+	for(i=2;i<=sqrt(b);i++)
+	{
+		if(b%i==0) check=0;	
+	}
+	if (check==1) printf("Day la so nguyen to"); else printf("Day khong phai so nguyen to");
+// den day, b la so can xet, if b la so ngto thi thong bao, con khong thi bao khong phai.
+}
+}

@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <math.h>
+
+long long b, a;
+
+void nhap()
+{
+    printf("nhap so a = ");
+    scanf("%lld", &a);
+    printf("nhap so b = ");
+    scanf("%d", &b);
+}
+
+void kt_so_nguyen_to()
+{
+    int c[10000], d[1000], k = 0, dem = 0, kt = 0;
+
+    for (int i = 2; i <= b; i++)
+    {
+        c[i] = 1;
+    }
+    for (int i = 2; i <= b; i++)
+    {
+        if (c[i] == 1)
+        {
+            for (int j = i + 1; j <= b; j++)
+            {
+                if (j % i == 0)
+                {
+                    c[j] = 0;
+                }
+            }
+        }
+    }
+    for (int i = 2; i <= b; i++)
+    {
+        if (c[i] == 1)
+        {
+            d[k] = i;
+            k++;
+        }
+    }
+
+    for (int i = a; i <= b; i++)
+    {
+        dem = 0;
+        for (int j = 0; j < k; j++)
+        {
+            if (d[j] < i)
+            {
+                dem++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (c[dem] == 1)
+        {
+            // printf("\n%d", i);
+            kt++;
+        }
+    }
+    printf("co %d so sieu nguyen to", kt);
+}
+
+int main()
+{
+    nhap();
+    kt_so_nguyen_to();
+    return 0;
+}

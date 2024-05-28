@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+// Cứ cái nào không chạy được thì đổ lỗi số to quá 
+{
+    int n,i,j,p,t,d,a,b;
+    printf("\nNhap A: "); scanf("%d",&a);
+    printf("\nNhap B: "); scanf("%d",&b);
+    int c[b];
+    for(i=a;i<=b;i++)
+    {
+        c[i]=1;
+    }
+        for (p=2;p<b;p++)
+            {
+                t= b/p;
+                for (i=2;i<=t;i++)
+                            c[p*i]=0;
+            }
+    printf("(");
+    for(i=a;i<=b;i++)
+    {
+        if (c[i]==1)
+        {
+            printf("%d ",i);
+        }
+    }
+    printf(")");
+}
