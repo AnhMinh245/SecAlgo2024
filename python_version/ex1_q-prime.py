@@ -1,3 +1,7 @@
+## Câu 1: Một số gọi là Q-prime khi nó có đúng 4 ước số nguyên dương. Hãy viết chương trình in ra
+##  các số Q-Prime nhỏ hơn hoặc bằng một số N cho trước nhập từ bàn phím.
+
+
 # count divisors of input number
 def count_divisors(n):
     count = 0
