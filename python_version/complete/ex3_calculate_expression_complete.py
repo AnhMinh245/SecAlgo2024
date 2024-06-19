@@ -37,33 +37,19 @@ def find_prime_divisors(n):
                 
     return [divisor for divisor in divisors if isPrime[divisor]]
 
-def count_divisors(n):
-    """
-    Count divisors of n.
-    Args:
-        n: The number to count divisors of.
-    Returns: 
-        The count of divisors of n
-    """
-    return len(find_all_divisors(n))
-
-def count_prime_divisors(n):
-    """
-    Count prime divisors of n.
-    Args:
-        n: The number to count prime divisors of.
-    Returns: 
-        The count of prime divisors of n
-    """
-    return len(find_prime_divisors(n))
 
 if __name__ == "__main__":
     n = int(input("Enter N: "))
     if n <= 0:
         raise ValueError("n must be a positive integer")
-    k = count_prime_divisors(n)  # Number of prime divisors of n
-    q = sum(prime_divisor for prime_divisor in find_prime_divisors(n))  # Sum of prime divisors of n
-    p = sum(divisor for divisor in find_all_divisors(n))  # Sum of all divisors of n
-    s = count_divisors(n)  # Number of divisors of n
-    
-    print(n + p + s - q - k)
+
+    prime_divisors = list(find_prime_divisors(n))  # Calculate once and store
+    all_divisors = list(find_all_divisors(n))  # Calculate once and store
+
+    k = len(prime_divisors)  # Number of prime divisors of n
+    q = sum(prime_divisors)  # Sum of prime divisors of n
+    p = sum(all_divisors)  # Sum of all divisors of n
+    s = len(all_divisors)  # Number of divisors of n
+
+    result = n + p + s - q - k
+    print(result)
