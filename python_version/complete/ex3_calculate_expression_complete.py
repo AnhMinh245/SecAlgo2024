@@ -39,7 +39,7 @@ def find_prime_divisors(n):
 
 
 if __name__ == "__main__":
-    n = int(input("Enter N: "))
+    n = int(input()) 
     if n <= 0:
         raise ValueError("n must be a positive integer")
 
