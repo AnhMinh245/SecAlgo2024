@@ -1,3 +1,6 @@
+""" Câu 8. Một số gọi là số T-prime nếu có có đúng 3 ước nguyên dương. Viết chương trình tìm các 
+số T-prime nhỏ hơn hoặc bằng N với N cho trước nhập từ bàn phím. """
+
 # find T-prime numbers less than or equal to a given number N 
 
 """

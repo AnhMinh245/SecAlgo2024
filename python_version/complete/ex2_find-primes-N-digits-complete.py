@@ -1,3 +1,5 @@
+# Câu 2. Viết chương trình tìm các số nguyên tố có N chữ số với N nhập từ bàn phím và 2 ≤ N ≤10.
+
 """ Pseudocode
 1. Read 𝑁 from the input.
 2. If N is not between 2 and 10, print an error message and exit.

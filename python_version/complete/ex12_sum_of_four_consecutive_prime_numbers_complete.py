@@ -1,4 +1,5 @@
-# Câu 12. Viết chương trình tìm bốn số nguyên tố liên tiếp, sao cho tổng của chúng là số nguyên tố nhỏ hơn hoặc bằng N (với N được nhập vào từ bàn phím).
+# Câu 12. Viết chương trình tìm bốn số nguyên tố liên tiếp, sao cho tổng của chúng là số nguyên tố nhỏ hơn 
+# hoặc bằng N (với N được nhập vào từ bàn phím).
 # Input: 20
 # Output: 2 3 5 7 
 

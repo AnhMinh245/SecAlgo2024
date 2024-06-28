@@ -1,3 +1,6 @@
+""" Câu 9. Viết chương trình đếm số số nguyên tố nhỏ hơn hoặc bằng N với N được nhập vào từ bàn 
+phím. """
+
 # count prime numbers less than or equal to n
 
 def count_prime_numbers(n):

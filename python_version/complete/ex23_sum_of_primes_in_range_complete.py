@@ -1,4 +1,4 @@
-# Viết chương trình in ra màn hình YES trong trường hợp tổng của các số nguyên tố trong 
+# Câu 23. Viết chương trình in ra màn hình YES trong trường hợp tổng của các số nguyên tố trong 
 # khoảng [A, B] là cũng là một số nguyên tố và NO nếu ngược lại. Với A,B là hai số được nhập vào từ bàn phím. 
 
 
