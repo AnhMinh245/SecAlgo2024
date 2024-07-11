@@ -50,3 +50,5 @@ if __name__ == "__main__":
     for a in range(1, N):
         if isPrime(nhan_binh_phuong_co_lap(a, p, N)):
             print(a)
+
+    

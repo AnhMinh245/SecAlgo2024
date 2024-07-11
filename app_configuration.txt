@@ -1,0 +1,31 @@
+1. Chạy ứng dụng: python app.py
+2. Cài đặt gói: 
+    pip install Flask GitPython
+3. Sử dụng Github webhook & SECRET 
+4. Mở port trên máy
+5. Dựng service:
+*Sử dụng `systemd`**:
+   - Tạo file dịch vụ systemd để tự động chạy ứng dụng Flask khi máy chủ khởi động lại:
+     ```bash
+     sudo nano /etc/systemd/system/flask_app.service
+     ```
+
+   - Thêm nội dung sau vào file:
+     ```ini
+     [Unit]
+     Description=A simple Flask web application
+     After=network.target
+
+     [Service]
+     User=ec2-user
+     WorkingDirectory=/path/to/your/app
+     ExecStart=/usr/bin/python3 /path/to/your/app/app.py
+     Restart=always
+
+     [Install]
+     WantedBy=multi-user.target
+     ```
+
+   - Thay `/path/to/your/app` bằng đường dẫn thực tế đến thư mục chứa ứng dụng của bạn.
+   - Lưu file và thoát.
+

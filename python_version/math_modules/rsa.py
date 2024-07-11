@@ -21,8 +21,8 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-def mod_inverse(a, m):
-    m0, x0, x1 = m, 0, 1
+def mod_inverse(a, m): # Extended Euclidean Algorithm
+    m0, x0, x1 = m, 0, 1 
     while a > 1:
         q = a // m
         m, a = a % m, m
