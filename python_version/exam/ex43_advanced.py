@@ -1,10 +1,11 @@
 """ Câu 43. Cho N nhập vào từ bàn phím (0<N<1000), sinh một số nguyên tố p<100. Hãy viết 
-chương trình tìm tất cả các số nguyên a<N sao cho a
-p mod N là số nguyên tố """
+chương trình tìm tất cả các số nguyên a<N sao cho a^p mod N là số nguyên tố """
 
-# Hàm kiểm tra một số là số nguyên tố
+
 import random
 
+
+# Hàm kiểm tra một số là số nguyên tố
 def isPrime(n):
     if n < 2: 
         return False 
@@ -25,13 +26,11 @@ def findPrimes(N):
 def nhan_binh_phuong_co_lap(a, p ,N):
     result = 1
     a = a % N # Lấy phần dư của a khi chia cho N
-
     while p > 0: # Duyệt qua các bit của p
         if p % 2 == 1: # Nếu bit cuối cùng của p là 1
             result = (result * a) % N # Nhân kết quả với a và lấy phần dư khi chia cho N
         p = p // 2 # Chia p cho 2
         a = (a * a) % N # Bình phương a và lấy phần dư khi chia cho N
-
     return result
 
 if __name__ == "__main__":
@@ -50,5 +49,3 @@ if __name__ == "__main__":
     for a in range(1, N):
         if isPrime(nhan_binh_phuong_co_lap(a, p, N)):
             print(a)
-
-    
