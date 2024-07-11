@@ -35,3 +35,5 @@ if __name__ == "__main__":
     sumPrimes = sieveOfEratosthenes(A, B)
     print("YES" if isPrime(sumPrimes) else "NO")
 
+
+
